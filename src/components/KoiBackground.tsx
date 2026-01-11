@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import WaterBackground from './WaterBackground';
 
 // Detailed 8-bit Koi Fish SVG Component
-const PixelKoi = ({ color = "#f2a65e", secondaryColor = "#ffffff", delay = 0, duration = 20 }) => {
+const PixelKoi = ({ delay = 0, duration = 20 }) => {
   
   // Generate random path parameters
   const pathParams = useMemo(() => {

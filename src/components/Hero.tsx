@@ -125,7 +125,7 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <motion.div 
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: "steps(4)" }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
         className="absolute bottom-10 left-0 w-full text-center text-white font-pixel-body text-xl z-20"
       >
         PRESS START

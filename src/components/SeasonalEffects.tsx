@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Petal = ({ id }: { id: number }) => {
+const Petal = () => {
   const randomStart = Math.random() * 100; // %
   const randomDuration = 10 + Math.random() * 10; // s
   const randomDelay = Math.random() * 10; // s
@@ -49,7 +49,7 @@ const SeasonalEffects = () => {
     <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
       <AnimatePresence>
         {petals.map((id) => (
-          <Petal key={id} id={id} />
+          <Petal key={id} />
         ))}
       </AnimatePresence>
     </div>
