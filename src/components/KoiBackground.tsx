@@ -261,7 +261,6 @@ const KoiBackground = () => {
       {fish.map((id) => (
         <PixelKoi 
           key={id} 
-          color="#ff5e3a" 
           delay={id * 2} 
           duration={20 + Math.random() * 10}
         />
