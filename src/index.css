@@ -6,15 +6,15 @@
 
 @layer base {
   :root {
-    /* Centralized Color Palette - Hex Values */
-    --koi-dark: #0a1a2f;       /* Deep Pond Blue */
-    --koi-water: #114b5f;      /* Teal Water */
-    --koi-water-light: #1a6e8a; /* Light Teal */
-    --koi-fish-orange: #f2a65e; /* Koi Orange */
-    --koi-fish-red: #d94e4e;    /* Koi Red */
-    --koi-fish-white: #f0f0f0;  /* Koi White/Scale */
-    --koi-leaf: #45b059;       /* Lily Pad Green */
-    --koi-sand: #e6d6ac;       /* Sand/Detail */
+    /* Centralized Color Palette - RGB Channels for Tailwind Opacity Support */
+    --koi-dark: 10 26 47;       /* #0a1a2f Deep Pond Blue */
+    --koi-water: 17 75 95;      /* #114b5f Teal Water */
+    --koi-water-light: 26 110 138; /* #1a6e8a Light Teal */
+    --koi-fish-orange: 242 166 94; /* #f2a65e Koi Orange */
+    --koi-fish-red: 217 78 78;    /* #d94e4e Koi Red */
+    --koi-fish-white: 240 240 240;  /* #f0f0f0 Koi White/Scale */
+    --koi-leaf: 69 176 89;       /* #45b059 Lily Pad Green */
+    --koi-sand: 230 214 172;       /* #e6d6ac Sand/Detail */
   }
 
   body {

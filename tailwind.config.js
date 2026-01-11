@@ -8,14 +8,14 @@ export default {
     extend: {
       colors: {
         koi: {
-          dark: 'rgb(from var(--koi-dark) r g b / <alpha-value>)', // Deep Pond Blue
-          water: 'rgb(from var(--koi-water) r g b / <alpha-value>)', // Teal Water
-          'water-light': 'rgb(from var(--koi-water-light) r g b / <alpha-value>)', // Light Teal
-          'fish-orange': 'rgb(from var(--koi-fish-orange) r g b / <alpha-value>)', // Koi Orange
-          'fish-red': 'rgb(from var(--koi-fish-red) r g b / <alpha-value>)', // Koi Red
-          'fish-white': 'rgb(from var(--koi-fish-white) r g b / <alpha-value>)', // Koi White/Scale
-          leaf: 'rgb(from var(--koi-leaf) r g b / <alpha-value>)', // Lily Pad Green
-          sand: 'rgb(from var(--koi-sand) r g b / <alpha-value>)', // Sand/Detail
+          dark: 'rgb(var(--koi-dark) / <alpha-value>)', // Deep Pond Blue
+          water: 'rgb(var(--koi-water) / <alpha-value>)', // Teal Water
+          'water-light': 'rgb(var(--koi-water-light) / <alpha-value>)', // Light Teal
+          'fish-orange': 'rgb(var(--koi-fish-orange) / <alpha-value>)', // Koi Orange
+          'fish-red': 'rgb(var(--koi-fish-red) / <alpha-value>)', // Koi Red
+          'fish-white': 'rgb(var(--koi-fish-white) / <alpha-value>)', // Koi White/Scale
+          leaf: 'rgb(var(--koi-leaf) / <alpha-value>)', // Lily Pad Green
+          sand: 'rgb(var(--koi-sand) / <alpha-value>)', // Sand/Detail
         }
       },
       fontFamily: {
