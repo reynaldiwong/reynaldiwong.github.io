@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonTools from "../components/JsonTools";
+import DnsLookup from "../components/DnsLookup";
+import SSLChecker from "../components/SSLChecker";
+---
+
+<BaseLayout
+  title="Rey — Tools"
+  description="Just a bunch of tools to help you and me."
+>
+  <p class="tagline">
+    Just a bunch of tools to help you and me.
+  </p>
+
+  <section class="grid">
+    <section class="card">
+      <DnsLookup client:load />
+    </section>
+    <section class="card">
+      <SSLChecker client:load />
+    </section>
+    <section class="card">
+      <JsonTools client:load />
+    </section>
+  </section>
+</BaseLayout>
