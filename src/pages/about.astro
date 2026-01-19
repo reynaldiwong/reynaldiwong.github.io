@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import meImage from "../assets/images/me.jpg";
 ---
 
 <BaseLayout
@@ -7,31 +8,65 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="A concise introduction to Rey and their work."
 >
   <p class="tagline">
-    A short, direct description of you and what you care about.
+    <em>"You should enjoy the little detours to the fullest. Because that's where you'll find things more important than what you want."</em>
   </p>
 
   <section class="grid">
     <section class="card primary">
-      <h2>Profile</h2>
-      <p>
-        Replace this with a tight 2–3 sentence overview:
-        what you do, what you value, and how you work.
-      </p>
+      <div class="about-profile-row">
+        <div class="about-profile-text">
+          <h2>Profile</h2>
+          <p>
+            Hi again, to reintroduce myself. My name is <strong>Reynaldi Wong</strong>. I’ve always been a lazy person. Because of that, I constantly ask myself "What if I could just automate everything?" That mindset led me to study Mechatronics Engineering.
+          </p>
+          <br/>
+          <p>
+            After graduating, I began working with microcontrollers and robotics, using tools like Arduino, PLCs, and even Raspberry Pi. And then, Somewhere along the way, somehow i began working as a DevOps Engineer. That discovery changed my direction.
+          </p>
+          <br/>
+          <p>
+            I really enjoy working with Kubernetes, Docker, and Jenkins. How a deployment pipeline for a containerized application can be automated.
+          </p>
+        </div>
+        <img
+          src={meImage.src}
+          alt="Photo of Reynaldi Wong"
+          class="about-photo"
+        />
+      </div>
     </section>
 
     <section class="card">
-      <h2>Strengths</h2>
-      <ul>
-        <li>List a few capabilities you want to be known for.</li>
-        <li>Keep each bullet focused and concrete.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Principles</h2>
-      <ul>
-        <li>Share 3–5 principles that guide your decisions.</li>
-      </ul>
+      <h2>Experience</h2>
+      <ol class="timeline">
+        <li class="timeline-item timeline-item-current">
+          <div class="timeline-meta">DevOps Engineer</div>
+          <div class="timeline-content">
+            <p class="timeline-content-title">Digital Daya Teknologi</p>
+            <p class="timeline-content-text">
+              Maintained and developed cloud infrastructure and CI/CD pipelines for applications at Nobu Bank.
+            </p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-meta">Project and Automation Supervisor</div>
+          <div class="timeline-content">
+            <p class="timeline-content-title">Dankos Farma (a Kalbe Company)</p>
+            <p class="timeline-content-text">
+              Designed and provisioned on-premise infrastructure, including servers and networking, for data center.
+            </p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-meta">Automation Specialist</div>
+          <div class="timeline-content">
+            <p class="timeline-content-title">Finusolprima Farma International (a Kalbe Company)</p>
+            <p class="timeline-content-text">
+              Designed and provisioned on-premise infrastructure, including servers and networking, for data center.
+            </p>
+          </div>
+        </li>
+      </ol>
     </section>
   </section>
 </BaseLayout>
