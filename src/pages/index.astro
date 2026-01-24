@@ -9,25 +9,21 @@ import me from "../assets/images/me.jpg";
   title="Rey — Home"
   description="Reynaldi Wong - DevOps Engineer"
 >
-  <div class="balcom-container">
-    
-    <div style="text-align: center; margin-bottom: 2rem; font-size: 0.9rem; font-weight: 600; color: var(--primary-color);" class="animate-left delay-100">
-      Reynaldi Wong
-    </div>
+  <div class="profile-container">
 
     <!-- Split Hero -->
-    <section class="balcom-hero-split">
-      <div class="balcom-hero-text animate-left delay-200">
+    <section class="hero-split">
+      <div class="hero-text animate-left delay-200">
         <h1>
-          I design and <span style="font-family: monospace; font-weight: 400;">automate()</span> infrastructure, 
+          I <span style="font-family: monospace; font-weight: 400;">design</span> and <span style="font-family: monospace; font-weight: 400;">automate</span> stuff, 
           <span class="faded">shape resilient systems, and build + lead inspired engineering teams.</span>
         </h1>
       </div>
-      <div class="balcom-hero-image-wrapper animate-right delay-200">
+      <div class="hero-image-wrapper animate-right delay-200">
         <Image 
           src={me} 
           alt="Reynaldi Wong" 
-          class="balcom-avatar"
+          class="profile-avatar"
           width={400}
           height={500}
         />
@@ -35,17 +31,17 @@ import me from "../assets/images/me.jpg";
     </section>
 
     <!-- Bio / Philosophy -->
-    <section class="balcom-bio-split">
-      <div class="balcom-bio-left animate-left delay-300">
+    <section class="bio-split">
+      <div class="bio-left animate-left delay-300">
         <!-- Empty or small intro text if needed -->
       </div>
-      <div class="balcom-bio-right animate-right delay-300">
-        <div class="balcom-intro">
+      <div class="bio-right animate-right delay-300">
+        <div class="bio-intro">
           <p>
             Currently, I’m a DevOps Engineer at <strong>Digital Daya Teknologi</strong>,
             empowering development teams to deploy faster, safer, and with greater confidence.
           </p>
-          <p class="balcom-links">
+          <p class="bio-links">
             <a href="mailto:contact@reynaldi.dev">Email me</a>, 
             or shout over on <a href="https://linkedin.com" target="_blank">LinkedIn</a> 
             or <a href="https://github.com" target="_blank">GitHub</a>.
@@ -54,44 +50,44 @@ import me from "../assets/images/me.jpg";
       </div>
     </section>
 
-    <h2 class="balcom-subheading animate-left delay-400" style="margin-bottom: 4rem; max-width: 800px;">
+    <h2 class="section-heading animate-left delay-400" style="margin-bottom: 4rem; max-width: 800px;">
       Over 3 years bridging development and operations into delightful developer experiences.
     </h2>
 
     <!-- Experience List -->
-    <section class="balcom-experience-section animate-right delay-400">
+    <section class="experience-section animate-left delay-400">
       
-      <div class="balcom-experience-item">
-        <div class="balcom-year">2023 — Present</div>
-        <div class="balcom-timeline-dot"></div>
-        <div class="balcom-details">
+      <div class="experience-item">
+        <div class="experience-year">2023 — Present</div>
+        <div class="timeline-dot"></div>
+        <div class="experience-details">
           <h3>DevOps Engineer at [Digital Daya Teknologi]</h3>
           <p>Maintained and developed cloud infrastructure and CI/CD pipelines for applications at Nobu Bank.</p>
-          <div class="balcom-bottom-line">
+          <div class="experience-bottom-line">
             Bottom Line → Reduced deployment time by 40% and improved system reliability.
           </div>
         </div>
       </div>
 
-      <div class="balcom-experience-item">
-        <div class="balcom-year">2021 — 2023</div>
-        <div class="balcom-timeline-dot"></div>
-        <div class="balcom-details">
+      <div class="experience-item">
+        <div class="experience-year">2021 — 2023</div>
+        <div class="timeline-dot"></div>
+        <div class="experience-details">
           <h3>Project Supervisor at Dankos Farma</h3>
           <p>Designed and provisioned on-premise infrastructure, including servers and networking, for data center.</p>
-          <div class="balcom-bottom-line">
+          <div class="experience-bottom-line">
             Bottom Line → Successfully migrated legacy systems to virtualized environments.
           </div>
         </div>
       </div>
 
-      <div class="balcom-experience-item">
-        <div class="balcom-year">2019 — 2021</div>
-        <div class="balcom-timeline-dot"></div>
-        <div class="balcom-details">
+      <div class="experience-item">
+        <div class="experience-year">2019 — 2021</div>
+        <div class="timeline-dot"></div>
+        <div class="experience-details">
           <h3>Automation Specialist at Finusolprima</h3>
           <p>Implemented automated control systems for manufacturing lines to improve efficiency.</p>
-          <div class="balcom-bottom-line">
+          <div class="experience-bottom-line">
              Bottom Line → Increased production output by 15% through automation.
           </div>
         </div>
@@ -100,8 +96,8 @@ import me from "../assets/images/me.jpg";
     </section>
 
     <!-- This & That / Tools -->
-    <h2 class="balcom-subheading animate-left delay-500" style="margin-bottom: 2rem;">This & That.</h2>
-    <div class="balcom-grid-split">
+    <h2 class="section-heading animate-left delay-500" style="margin-bottom: 2rem;">This & That.</h2>
+    <div class="info-grid">
       <div class="animate-left delay-500">
         <p style="color: var(--secondary-text);">
           A lazy person on the hunt for efficiency. Long-suffering <u>Kubernetes fan</u>, avid automation collector, average gamer, and aspiring <u>home chef</u>.
@@ -124,12 +120,12 @@ import me from "../assets/images/me.jpg";
     </div>
 
     <!-- Tools Link -->
-    <a href="/tools" class="balcom-tools-link animate-left delay-600">
+    <a href="/tools" class="tools-link-card animate-left delay-600">
       <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-        <span class="balcom-tools-title">Tools</span>
-        <span class="balcom-tools-desc">DNS Lookup, SSL Checker, JSON Formatter</span>
+        <span class="tools-link-title">Tools</span>
+        <span class="tools-link-desc">DNS Lookup, SSL Checker, JSON Formatter</span>
       </div>
-      <span class="balcom-tools-arrow">→</span>
+      <span class="tools-link-arrow">→</span>
     </a>
 
   </div>
