@@ -13,7 +13,12 @@ import meImage from "../assets/images/me.jpg";
 
   <section class="grid">
     <section class="card primary">
-      <div class="about-profile-row">
+      <div class="about-profile-section">
+        <img
+          src={meImage.src}
+          alt="Photo of Reynaldi Wong"
+          class="about-photo"
+        />
         <div class="about-profile-text">
           <h2>Profile</h2>
           <p>
@@ -28,11 +33,6 @@ import meImage from "../assets/images/me.jpg";
             I really enjoy working with Kubernetes, Docker, and Jenkins. How a deployment pipeline for a containerized application can be automated.
           </p>
         </div>
-        <img
-          src={meImage.src}
-          alt="Photo of Reynaldi Wong"
-          class="about-photo"
-        />
       </div>
     </section>
 
@@ -40,27 +40,30 @@ import meImage from "../assets/images/me.jpg";
       <h2>Experience</h2>
       <ol class="timeline">
         <li class="timeline-item timeline-item-current">
-          <div class="timeline-meta">DevOps Engineer</div>
+          <div class="timeline-meta">2023 — Present</div>
           <div class="timeline-content">
-            <p class="timeline-content-title">Digital Daya Teknologi</p>
+            <p class="timeline-content-title">DevOps Engineer</p>
+            <p class="timeline-meta" style="padding-left: 0; margin-bottom: 0.5rem;">Digital Daya Teknologi</p>
             <p class="timeline-content-text">
               Maintained and developed cloud infrastructure and CI/CD pipelines for applications at Nobu Bank.
             </p>
           </div>
         </li>
         <li class="timeline-item">
-          <div class="timeline-meta">Project and Automation Supervisor</div>
+          <div class="timeline-meta">2021 — 2023</div>
           <div class="timeline-content">
-            <p class="timeline-content-title">Dankos Farma (a Kalbe Company)</p>
+            <p class="timeline-content-title">Project and Automation Supervisor</p>
+            <p class="timeline-meta" style="padding-left: 0; margin-bottom: 0.5rem;">Dankos Farma (a Kalbe Company)</p>
             <p class="timeline-content-text">
               Designed and provisioned on-premise infrastructure, including servers and networking, for data center.
             </p>
           </div>
         </li>
         <li class="timeline-item">
-          <div class="timeline-meta">Automation Specialist</div>
+          <div class="timeline-meta">2019 — 2021</div>
           <div class="timeline-content">
-            <p class="timeline-content-title">Finusolprima Farma International (a Kalbe Company)</p>
+            <p class="timeline-content-title">Automation Specialist</p>
+            <p class="timeline-meta" style="padding-left: 0; margin-bottom: 0.5rem;">Finusolprima Farma International (a Kalbe Company)</p>
             <p class="timeline-content-text">
               Designed and provisioned on-premise infrastructure, including servers and networking, for data center.
             </p>

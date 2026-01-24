@@ -130,9 +130,11 @@ export default function JsonTools() {
           onInput={(event) => setInput((event.target as HTMLTextAreaElement).value)}
           placeholder='{"example": ["value", 1, true]}'
         />
-        <button type="button" class="tool-button" onClick={handleFormat}>
-          Format and validate
-        </button>
+        <div class="tool-row" style="justify-content: flex-end;">
+          <button type="button" class="tool-button" onClick={handleFormat}>
+            Format and validate
+          </button>
+        </div>
         {validation === "valid" && !error && (
           <p class="tool-status tool-status-valid pt-3">JSON is valid ✔</p>
         )}

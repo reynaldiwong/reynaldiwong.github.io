@@ -1,47 +1,156 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ExperienceTimer from "../components/ExperienceTimer";
+import { Image } from "astro:assets";
+import me from "../assets/images/me.jpg";
 ---
 
 <BaseLayout
   title="Rey — Home"
-  description="Hi There."
+  description="Reynaldi Wong - DevOps Engineer"
 >
-  <p class="tagline">
-    Hi There, Salam Kenal.
-    <span class="tagline-icon-hand">👋</span>
-  </p>
+  <div class="balcom-container">
+    
+    <div style="text-align: center; margin-bottom: 2rem; font-size: 0.9rem; font-weight: 600; color: var(--primary-color);" class="animate-left delay-100">
+      Reynaldi Wong
+    </div>
 
-  <section class="grid">
-    <section class="card">
-      <p>
-        My name is <strong>Reynaldi Wong</strong>. A Mechatronics Engineering graduate who, at one point in his life, found himself stepping into the world of DevOps. I mostly worked with <a href="https://kubernetes.io/" target="_blank" rel="noreferrer">Kubernetes</a>, <a href="https://www.docker.com/" target="_blank" rel="noreferrer">Docker</a>, and <a href="https://www.jenkins.io/" target="_blank" rel="noreferrer">Jenkins</a>. And been passionate about automating everything (Maybe because of my mechatronics background ¯\(・3・)/¯ ).
-      </p>
-      <p>
-        Previously working on designing and provisioning a On-Prem Infrastructure for subsidiary of <a href="https://www.kalbe.co.id/" target="_blank" rel="noreferrer">Kalbe Company</a>. Then continuing my journey maintaining and developing cloud infrastructure and CI/CD pipelines of <a href="https://nobugo.nobubank.com/" target="_blank" rel="noreferrer">Nobu Bank</a>.
-      </p>
+    <!-- Split Hero -->
+    <section class="balcom-hero-split">
+      <div class="balcom-hero-text animate-left delay-200">
+        <h1>
+          I design and <span style="font-family: monospace; font-weight: 400;">automate()</span> infrastructure, 
+          <span class="faded">shape resilient systems, and build + lead inspired engineering teams.</span>
+        </h1>
+      </div>
+      <div class="balcom-hero-image-wrapper animate-right delay-200">
+        <Image 
+          src={me} 
+          alt="Reynaldi Wong" 
+          class="balcom-avatar"
+          width={400}
+          height={500}
+        />
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Current Quest</h2>
-      <ul>
-        <li>Making the best script for CI/CD</li>
-        <li>Learn more about DevOps and Cloud Native</li>
-      </ul>
+    <!-- Bio / Philosophy -->
+    <section class="balcom-bio-split">
+      <div class="balcom-bio-left animate-left delay-300">
+        <!-- Empty or small intro text if needed -->
+      </div>
+      <div class="balcom-bio-right animate-right delay-300">
+        <div class="balcom-intro">
+          <p>
+            Currently, I’m a DevOps Engineer at <strong>Digital Daya Teknologi</strong>,
+            empowering development teams to deploy faster, safer, and with greater confidence.
+          </p>
+          <p class="balcom-links">
+            <a href="mailto:contact@reynaldi.dev">Email me</a>, 
+            or shout over on <a href="https://linkedin.com" target="_blank">LinkedIn</a> 
+            or <a href="https://github.com" target="_blank">GitHub</a>.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Let’s make some fun collaboration!</h2>
-      <p>
-        reynaldiwong@gmail.com
-        <br />
-        <a href="https://www.linkedin.com/in/reynaldi-wong-684353171/" target="_blank" rel="noreferrer">
-          Linkedin
-        </a>
-        &nbsp;|&nbsp;
-        <a href="https://github.com/ReynaldiWong" target="_blank" rel="noreferrer">
-          Github
-        </a>
-      </p>
+    <h2 class="balcom-subheading animate-left delay-400" style="margin-bottom: 4rem; max-width: 800px;">
+      Over 3 years bridging development and operations into delightful developer experiences.
+    </h2>
+
+    <!-- Experience List -->
+    <section class="balcom-experience-section animate-right delay-400">
+      
+      <div class="balcom-experience-item">
+        <div class="balcom-year">2023 — Present</div>
+        <div class="balcom-timeline-dot"></div>
+        <div class="balcom-details">
+          <h3>DevOps Engineer at [Digital Daya Teknologi]</h3>
+          <p>Maintained and developed cloud infrastructure and CI/CD pipelines for applications at Nobu Bank.</p>
+          <div class="balcom-bottom-line">
+            Bottom Line → Reduced deployment time by 40% and improved system reliability.
+          </div>
+        </div>
+      </div>
+
+      <div class="balcom-experience-item">
+        <div class="balcom-year">2021 — 2023</div>
+        <div class="balcom-timeline-dot"></div>
+        <div class="balcom-details">
+          <h3>Project Supervisor at Dankos Farma</h3>
+          <p>Designed and provisioned on-premise infrastructure, including servers and networking, for data center.</p>
+          <div class="balcom-bottom-line">
+            Bottom Line → Successfully migrated legacy systems to virtualized environments.
+          </div>
+        </div>
+      </div>
+
+      <div class="balcom-experience-item">
+        <div class="balcom-year">2019 — 2021</div>
+        <div class="balcom-timeline-dot"></div>
+        <div class="balcom-details">
+          <h3>Automation Specialist at Finusolprima</h3>
+          <p>Implemented automated control systems for manufacturing lines to improve efficiency.</p>
+          <div class="balcom-bottom-line">
+             Bottom Line → Increased production output by 15% through automation.
+          </div>
+        </div>
+      </div>
+
     </section>
-  </section>
+
+    <!-- This & That / Tools -->
+    <h2 class="balcom-subheading animate-left delay-500" style="margin-bottom: 2rem;">This & That.</h2>
+    <div class="balcom-grid-split">
+      <div class="animate-left delay-500">
+        <p style="color: var(--secondary-text);">
+          A lazy person on the hunt for efficiency. Long-suffering <u>Kubernetes fan</u>, avid automation collector, average gamer, and aspiring <u>home chef</u>.
+          <br/><br/>
+          Based in <u>Jakarta</u>.
+          <br/><br/>
+          Been a DevOps Engineer for <ExperienceTimer client:only="preact" startDate="2022-08-01" />.
+        </p>
+      </div>
+      <div class="animate-right delay-500">
+        <!-- Lightning Round equivalent or Tools -->
+         <p style="font-weight: 600; margin-bottom: 1rem;">Lightning Round ⚡</p>
+         <ul style="list-style: none; padding: 0; color: var(--secondary-text); line-height: 2;">
+           <li>☕ Coffee over Tea</li>
+           <li>🐧 Linux over Windows</li>
+           <li>⚡ VS Code over Vim (sorry!)</li>
+           <li>🎵 Rock over Pop</li>
+         </ul>
+      </div>
+    </div>
+
+    <!-- Tools Link -->
+    <a href="/tools" class="balcom-tools-link animate-left delay-600">
+      <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+        <span class="balcom-tools-title">Tools</span>
+        <span class="balcom-tools-desc">DNS Lookup, SSL Checker, JSON Formatter</span>
+      </div>
+      <span class="balcom-tools-arrow">→</span>
+    </a>
+
+  </div>
+
+  <script>
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.animate-left, .animate-right, .animate-load');
+    animatedElements.forEach(el => observer.observe(el));
+  </script>
 </BaseLayout>
