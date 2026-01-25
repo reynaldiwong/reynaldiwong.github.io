@@ -1,6 +1,5 @@
 ---
 import "../styles.css";
-import Nav from "../components/Nav.astro";
 import YearStamp from "../components/YearStamp.astro";
 
 const { title, description } = Astro.props;
@@ -10,23 +9,45 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
   </head>
   <body>
-    <main class="page">
-      <header class="hero">
+    <header class="hero">
+      <div class="hero-inner">
         <div class="hero-content">
-          <p class="eyebrow"><strong>Reynaldiwong</strong></p>
+          <p class="eyebrow">Reynaldiwong</p>
           <slot name="hero" />
         </div>
-        <Nav />
-      </header>
+      </div>
+    </header>
+    <main class="page">
       <slot />
       <footer class="footer">
         <span>&copy; <YearStamp /> | reynaldiwong</span>
       </footer>
     </main>
+
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const animatedElements = document.querySelectorAll('.animate-left, .animate-right, .animate-load');
+      animatedElements.forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>

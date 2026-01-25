@@ -12,16 +12,28 @@ import SSLChecker from "../components/SSLChecker";
   <p class="tagline">
     Just a bunch of tools to help you and me.
   </p>
-
-  <section class="grid">
-    <section class="card">
+  <a href="/" class="tools-link-card delay-400" style="margin-bottom: 2rem;">
+    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+      <span class="tools-link-title">Home</span>
+      <span class="tools-link-desc">Return to homepage</span>
+    </div>
+    <span class="tools-link-arrow">→</span>
+  </a>
+  <div class="tools-vertical">
+    <section class="tool-item animate-left">
       <DnsLookup client:load />
     </section>
-    <section class="card">
+    
+    <hr class="tool-separator" />
+    
+    <section class="tool-item animate-right">
       <SSLChecker client:load />
     </section>
-    <section class="card">
+    
+    <hr class="tool-separator" />
+    
+    <section class="tool-item animate-left">
       <JsonTools client:load />
     </section>
-  </section>
+  </div>
 </BaseLayout>

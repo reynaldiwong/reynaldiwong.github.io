@@ -1,8 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ExperienceTimer from "../components/ExperienceTimer";
-import { Image } from "astro:assets";
+import HeroJson from "../components/HeroJson";
+import DotProfile from "../components/DotProfile";
+import BioEvolution from "../components/BioEvolution";
+import BallWave from "../components/BallWave";
 import me from "../assets/images/me.jpg";
+import skyrimGif from "../assets/images/skyrim.gif";
+
+const CAREER_START_DATE = "2022-08-01";
+const yearsExperience = Math.floor((new Date().getTime() - new Date(CAREER_START_DATE).getTime()) / (1000 * 60 * 60 * 24 * 365));
 ---
 
 <BaseLayout
@@ -11,60 +17,76 @@ import me from "../assets/images/me.jpg";
 >
   <div class="profile-container">
 
-    <!-- Split Hero -->
     <section class="hero-split">
-      <div class="hero-text animate-left delay-200">
-        <h1>
-          I <span style="font-family: monospace; font-weight: 400;">design</span> and <span style="font-family: monospace; font-weight: 400;">automate</span> stuff, 
-          <span class="faded">shape resilient systems, and build + lead inspired engineering teams.</span>
-        </h1>
+      <div class="hero-text animate-left delay-200" style="width: 100%;">
+        <HeroJson client:load startDate={CAREER_START_DATE} />
       </div>
       <div class="hero-image-wrapper animate-right delay-200">
-        <Image 
-          src={me} 
-          alt="Reynaldi Wong" 
-          class="profile-avatar"
-          width={400}
-          height={500}
-        />
+        <DotProfile client:load src={me.src} />
       </div>
     </section>
 
-    <!-- Bio / Philosophy -->
     <section class="bio-split">
       <div class="bio-left animate-left delay-300">
-        <!-- Empty or small intro text if needed -->
+        <p class="tagline">
+          <em>"You should enjoy the little detours to the fullest. Because that's where you'll find things more important than what you want."</em>
+        </p>
+        <div class="landscape-only-decoration">
+           <BioEvolution client:visible />
+        </div>
       </div>
       <div class="bio-right animate-right delay-300">
-        <div class="bio-intro">
-          <p>
-            Currently, I’m a DevOps Engineer at <strong>Digital Daya Teknologi</strong>,
-            empowering development teams to deploy faster, safer, and with greater confidence.
-          </p>
-          <p class="bio-links">
-            <a href="mailto:contact@reynaldi.dev">Email me</a>, 
-            or shout over on <a href="https://linkedin.com" target="_blank">LinkedIn</a> 
-            or <a href="https://github.com" target="_blank">GitHub</a>.
-          </p>
+        <div class="bio-intro">         
+          <div style=" color: var(--secondary-text);">
+            <p>
+              Hi, My name is <strong>Reynaldi Wong</strong>. You can call me <strong>Rey</strong>. I’ve always been a lazy person. And because of that, I constantly ask myself <em>"What if I could just automate everything?"</em> That mindset led me to study Mechatronics Engineering.
+            </p>
+            <p>
+              After graduating, I began working with microcontrollers and machines, using tools like Arduino, PLCs, and even Raspberry Pi. And then, Somewhere along the way, somehow i began working as a DevOps Engineer. That discovery changed my direction.
+            </p>
+            <p>
+              I feel that this line of work still stays close to what I love, which is automation with the fact that i almost can do everything, while on the other side, there is many limitation when you handle physical stuff. 
+              Atleast that's what i feel. But, if we talk about the details, I know that it leans more toward being a Platform Engineer rather than a DevOps Engineer. 😂
+            </p>
+            <p>
+              I really enjoy working with Kubernetes, Docker, and Jenkins. How a deployment pipeline for a containerized application can be automated and how you can make it faster with only tweaking your current scripts.
+            </p>
+            <p>
+              Currently I’m working as a DevOps Engineer at <strong>Digital Daya Teknologi</strong>,
+              Mainly focusing on improving the deployment pipeline for fintech applications.
+            </p>
+          </div>
         </div>
+      <div class="bio-links">
+        <p>
+          Anyway, feel free to get in touch with me. Whether you have a question, a project idea, or just want to say hi, I'd love to hear from you!
+        </p>
+        <p>          
+          <a href="mailto:reynaldiwong@gmail.com">Email me</a>, 
+          or check me on <a href="https://linkedin.com/in/reynaldiwong/" target="_blank">LinkedIn</a>,
+          <a href="https://github.com/reynaldiwong/" target="_blank">GitHub</a>,
+          or even <a href="https://discord.com/users/149162915444817920" target="_blank">Discord</a>
+        </p>
+      </div>
       </div>
     </section>
 
-    <h2 class="section-heading animate-left delay-400" style="margin-bottom: 4rem; max-width: 800px;">
-      Over 3 years bridging development and operations into delightful developer experiences.
+    <h2 class="section-heading animate-left delay-400" style="max-width: 800px;">
+      <BallWave client:visible />
+      Work Experience
     </h2>
 
-    <!-- Experience List -->
     <section class="experience-section animate-left delay-400">
       
       <div class="experience-item">
         <div class="experience-year">2023 — Present</div>
         <div class="timeline-dot"></div>
         <div class="experience-details">
-          <h3>DevOps Engineer at [Digital Daya Teknologi]</h3>
+          <h3>DevOps Engineer</h3>
+          <h4>Digital Daya Teknologi</h4>
           <p>Maintained and developed cloud infrastructure and CI/CD pipelines for applications at Nobu Bank.</p>
           <div class="experience-bottom-line">
-            Bottom Line → Reduced deployment time by 40% and improved system reliability.
+            Improve scripts maintainability and deployment time by ~40%
           </div>
         </div>
       </div>
@@ -73,10 +95,11 @@ import me from "../assets/images/me.jpg";
         <div class="experience-year">2021 — 2023</div>
         <div class="timeline-dot"></div>
         <div class="experience-details">
-          <h3>Project Supervisor at Dankos Farma</h3>
+          <h3>Project Supervisor</h3>
+          <h4>Dankos Farma (a Kalbe Company)</h4>
           <p>Designed and provisioned on-premise infrastructure, including servers and networking, for data center.</p>
           <div class="experience-bottom-line">
-            Bottom Line → Successfully migrated legacy systems to virtualized environments.
+            Implementing data centralization to consolidate all factory data onto a single server for corporate-scale operations.
           </div>
         </div>
       </div>
@@ -85,41 +108,43 @@ import me from "../assets/images/me.jpg";
         <div class="experience-year">2019 — 2021</div>
         <div class="timeline-dot"></div>
         <div class="experience-details">
-          <h3>Automation Specialist at Finusolprima</h3>
-          <p>Implemented automated control systems for manufacturing lines to improve efficiency.</p>
+          <h3>Automation Specialist</h3>
+          <h4>Finusolprima Farma Internasional (a Kalbe Company)</h4>
+          <p>Designed and provisioned on-premise infrastructure, including servers and networking, for data center.</p>
           <div class="experience-bottom-line">
-             Bottom Line → Increased production output by 15% through automation.
+             Implementing data centralization to consolidate all factory data onto a single server for corporate-scale operations.
           </div>
         </div>
       </div>
 
     </section>
 
-    <!-- This & That / Tools -->
-    <h2 class="section-heading animate-left delay-500" style="margin-bottom: 2rem;">This & That.</h2>
+    <h2 class="section-heading animate-left delay-500" style="margin-bottom: 2rem;">
+      <span style="color: #00ff00; animation: blink 1s step-end infinite;">&gt;</span> Out of the Terminal
+    </h2>
     <div class="info-grid">
       <div class="animate-left delay-500">
-        <p style="color: var(--secondary-text);">
-          A lazy person on the hunt for efficiency. Long-suffering <u>Kubernetes fan</u>, avid automation collector, average gamer, and aspiring <u>home chef</u>.
-          <br/><br/>
-          Based in <u>Jakarta</u>.
-          <br/><br/>
-          Been a DevOps Engineer for <ExperienceTimer client:only="preact" startDate="2022-08-01" />.
+        <p style="font-weight: 600; margin-bottom: 1rem;">
+          Outside works, I'm a person of simple pleasures. I love to play video games. 🎮
+          <br/>
+          <img src={skyrimGif.src} alt="Gaming Mode" style="width: 100%; border-radius: 8px; margin: 1rem 0;" />
         </p>
       </div>
       <div class="animate-right delay-500">
-        <!-- Lightning Round equivalent or Tools -->
-         <p style="font-weight: 600; margin-bottom: 1rem;">Lightning Round ⚡</p>
-         <ul style="list-style: none; padding: 0; color: var(--secondary-text); line-height: 2;">
-           <li>☕ Coffee over Tea</li>
-           <li>🐧 Linux over Windows</li>
-           <li>⚡ VS Code over Vim (sorry!)</li>
-           <li>🎵 Rock over Pop</li>
-         </ul>
+        <p style="font-weight: 600; margin-bottom: 1rem;">Vibin while working 🎧</p>
+        <iframe 
+          style="border-radius:12px" 
+          src="https://open.spotify.com/embed/playlist/4S5qFLA6lAJQvIS9uQiWE0?utm_source=generator&theme=0" 
+          width="100%" 
+          height="80%" 
+          frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
       </div>
     </div>
 
-    <!-- Tools Link -->
     <a href="/tools" class="tools-link-card animate-left delay-600">
       <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
         <span class="tools-link-title">Tools</span>
@@ -129,24 +154,4 @@ import me from "../assets/images/me.jpg";
     </a>
 
   </div>
-
-  <script>
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    const animatedElements = document.querySelectorAll('.animate-left, .animate-right, .animate-load');
-    animatedElements.forEach(el => observer.observe(el));
-  </script>
 </BaseLayout>

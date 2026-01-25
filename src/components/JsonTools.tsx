@@ -110,10 +110,9 @@ export default function JsonTools() {
       <div class="tool-section">
         <div class="tool-section-header">
           <div class="tool-section-header-main">
-            <h2>JSON formatter and validator</h2>
+            <h2>JSON Formatter & Validator</h2>
             <p class="tool-text">
-              Paste JSON, then format and validate it before searching for
-              values.
+              Format messy JSON, validate syntax, and explore data structures.
             </p>
           </div>
           <button
@@ -121,26 +120,34 @@ export default function JsonTools() {
             class="tool-button tool-button-ghost"
             onClick={() => setShowNotes(true)}
           >
-            Read Me
+            Privacy & Tips
           </button>
         </div>
         <textarea
           class="tool-input"
           value={input}
           onInput={(event) => setInput((event.target as HTMLTextAreaElement).value)}
-          placeholder='{"example": ["value", 1, true]}'
+          placeholder='{
+  "project": "Rey Website",
+  "status": "active",
+  "features": ["tools", "blog"],
+  "meta": {
+    "author": "Reynaldiwong",
+    "year": 2025
+  }
+}'
         />
         <div class="tool-row" style="justify-content: flex-end;">
           <button type="button" class="tool-button" onClick={handleFormat}>
-            Format and validate
+            Format JSON
           </button>
         </div>
         {validation === "valid" && !error && (
-          <p class="tool-status tool-status-valid pt-3">JSON is valid ✔</p>
+          <p class="tool-status tool-status-valid pt-3">Valid JSON ✔</p>
         )}
         {validation === "invalid" && error && (
           <p class="tool-status tool-status-invalid pt-3">
-            JSON is invalid: {error}
+            Invalid JSON: {error}
           </p>
         )}
         {formatted && !error && (
@@ -151,7 +158,7 @@ export default function JsonTools() {
                 class="tool-button tool-button-small"
                 onClick={handleCopy}
               >
-                {copied ? "Copied" : "Copy"}
+                {copied ? "Copied!" : "Copy"}
               </button>
             </div>
             <pre>{formatted}</pre>
@@ -160,10 +167,9 @@ export default function JsonTools() {
       </div>
 
       <div class="tool-section">
-        <h2>Find JSON paths for a value</h2>
+        <h2>JSON Path Finder</h2>
         <p class="tool-text">
-          Enter a value to search for. You can type raw text or a JSON value
-          such as 1, true, or "text".
+          Search for keys or values to generate their JSON paths.
         </p>
         <div class="tool-row tool-row-inline">
           <input
@@ -178,10 +184,10 @@ export default function JsonTools() {
                 handleFindPaths();
               }
             }}
-            placeholder='Example: "value" or 1 or true'
+            placeholder='e.g. "value", 123, or true'
           />
           <button type="button" class="tool-button" onClick={handleFindPaths}>
-            Find paths
+            Find Paths
           </button>
         </div>
         {paths.length > 0 && (
@@ -194,7 +200,7 @@ export default function JsonTools() {
           </div>
         )}
         {!error && paths.length === 0 && search.trim() && (
-          <p class="tool-text">No matching values found in the current JSON.</p>
+          <p class="tool-text">No matches found.</p>
         )}
       </div>
 
@@ -204,15 +210,13 @@ export default function JsonTools() {
             class="tool-dialog"
             onClick={(event) => event.stopPropagation()}
           >
-            <h3 class="tool-dialog-title">JSON security</h3>
+            <h3 class="tool-dialog-title">Privacy & Usage</h3>
             <p class="tool-text">
-              This formatter runs entirely in your browser. Your JSON is not
-              sent to any server or third-party API, and all parsing happens
-              locally on your device.
+              <strong>100% Client-Side:</strong> Your data never leaves your browser. All processing happens locally on your device.
             </p>
             <br />
             <p class="tool-text">
-              Even so, It's highly recommended to avoid pasting secrets or sensitive data here.
+              While safe, it's best practice not to paste sensitive tokens or production secrets into any browser tool.
             </p>
             <div class="tool-dialog-actions">
               <button
