@@ -3,14 +3,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import JsonTools from "../components/JsonTools";
 import DnsLookup from "../components/DnsLookup";
 import SSLChecker from "../components/SSLChecker";
+import { content } from "../data/content";
+
+const { tools } = content;
 ---
 
 <BaseLayout
-  title="Rey — Tools"
-  description="Just a bunch of tools to help you and me."
+  title={tools.title}
+  description={tools.description}
 >
   <p class="tagline">
-    Just a bunch of tools to help you and me.
+    {tools.tagline}
   </p>
   <a href="/" class="tools-link-card delay-400" style="margin-bottom: 2rem;">
     <div style="display: flex; align-items: baseline; flex-wrap: wrap;">

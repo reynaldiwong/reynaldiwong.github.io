@@ -2,6 +2,9 @@ import { useState, useEffect } from "preact/hooks";
 
 interface HeroJsonProps {
   startDate: string;
+  name: string;
+  role: string;
+  origin: string;
 }
 
 interface TimeState {
@@ -19,63 +22,7 @@ interface Token {
   key?: keyof TimeState;
 }
 
-const staticTokens: Token[] = [
-  { text: '{', type: 'punctuation' },
-  { text: '\n  ', type: 'plain' },
-  { text: '"name"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '"Reynaldi Wong"', type: 'string' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n  ', type: 'plain' },
-  { text: '"class"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '"DevOps Engineer"', type: 'string' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n  ', type: 'plain' },
-  { text: '"origin"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '"Mechatronics Engineering"', type: 'string' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n  ', type: 'plain' },
-  { text: '"playtime"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '{', type: 'punctuation' },
-  { text: '\n    ', type: 'plain' },
-  { text: '"years"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '0', type: 'value', key: 'years' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n    ', type: 'plain' },
-  { text: '"months"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '0', type: 'value', key: 'months' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n    ', type: 'plain' },
-  { text: '"days"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '0', type: 'value', key: 'days' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n    ', type: 'plain' },
-  { text: '"hours"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '0', type: 'value', key: 'hours' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n    ', type: 'plain' },
-  { text: '"minutes"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '0', type: 'value', key: 'minutes' },
-  { text: ',', type: 'punctuation' },
-  { text: '\n    ', type: 'plain' },
-  { text: '"seconds"', type: 'key' },
-  { text: ': ', type: 'punctuation' },
-  { text: '00', type: 'value', key: 'seconds' },
-  { text: '\n  ', type: 'plain' },
-  { text: '}', type: 'punctuation' },
-  { text: '\n', type: 'plain' },
-  { text: '}', type: 'punctuation' },
-];
-
-export default function HeroJson({ startDate }: HeroJsonProps) {
+export default function HeroJson({ startDate, name, role, origin }: HeroJsonProps) {
   const [duration, setDuration] = useState<TimeState>({
     years: 0,
     months: 0,
@@ -84,6 +31,63 @@ export default function HeroJson({ startDate }: HeroJsonProps) {
     minutes: 0,
     seconds: 0,
   });
+
+  // Dynamically generate tokens based on props
+  const staticTokens: Token[] = [
+    { text: '{', type: 'punctuation' },
+    { text: '\n  ', type: 'plain' },
+    { text: '"name"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: `"${name}"`, type: 'string' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n  ', type: 'plain' },
+    { text: '"class"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: `"${role}"`, type: 'string' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n  ', type: 'plain' },
+    { text: '"origin"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: `"${origin}"`, type: 'string' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n  ', type: 'plain' },
+    { text: '"playtime"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: '{', type: 'punctuation' },
+    { text: '\n    ', type: 'plain' },
+    { text: '"years"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: '0', type: 'value', key: 'years' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n    ', type: 'plain' },
+    { text: '"months"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: '0', type: 'value', key: 'months' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n    ', type: 'plain' },
+    { text: '"days"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: '0', type: 'value', key: 'days' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n    ', type: 'plain' },
+    { text: '"hours"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: '0', type: 'value', key: 'hours' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n    ', type: 'plain' },
+    { text: '"minutes"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: '0', type: 'value', key: 'minutes' },
+    { text: ',', type: 'punctuation' },
+    { text: '\n    ', type: 'plain' },
+    { text: '"seconds"', type: 'key' },
+    { text: ': ', type: 'punctuation' },
+    { text: '00', type: 'value', key: 'seconds' },
+    { text: '\n  ', type: 'plain' },
+    { text: '}', type: 'punctuation' },
+    { text: '\n', type: 'plain' },
+    { text: '}', type: 'punctuation' },
+  ];
   
   const totalStaticLength = staticTokens.reduce((acc, token) => acc + token.text.length, 0);
   
