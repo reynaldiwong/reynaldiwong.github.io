@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroJson from "../components/HeroJson";
 import DotProfile from "../components/DotProfile";
-import BioEvolution from "../components/BioEvolution";
+import ToolsCarousel from "../components/ToolsCarousel.astro";
 import BallWave from "../components/BallWave";
 import skyrimGif from "../assets/images/skyrim.gif";
 import { content } from "../data/content";
@@ -33,14 +33,12 @@ const { meta, hero, bio, experience, hobbies } = content;
 
     <section class="bio-split">
       <div class="bio-left animate-left delay-300">
-        <p class="tagline">
-          <em>{bio.tagline}</em>
+        <p class="tagline" style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem; color: var(--secondary-text);">
+          Tools I Have Worked With<br><span style="font-size: 0.9em">(But still learning to master them) <span style="display: inline-block; animation: spin 2s linear infinite;">😔</span></span>
         </p>
-        <div class="landscape-only-decoration">
-           <BioEvolution client:visible />
-        </div>
+        <ToolsCarousel />
       </div>
-      <div class="bio-right animate-right delay-300">
+      <div class="bio-right delay-300">
         <div class="bio-intro">         
           <div style=" color: var(--secondary-text);">
             {bio.intro.map((paragraph) => (
@@ -89,6 +87,9 @@ const { meta, hero, bio, experience, hobbies } = content;
     <h2 class="section-heading animate-left delay-500" style="margin-bottom: 2rem;">
       <span style="color: #00ff00; animation: blink 1s step-end infinite;">&gt;</span> Out of the Terminal
     </h2>
+    <div style="margin-bottom: 2rem; color: var(--secondary-text); font-style: italic; font-size: 1.2rem;">
+      {bio.tagline}
+    </div>
     <div class="info-grid">
       <div class="animate-left delay-500">
         <p style="font-weight: 600; margin-bottom: 1rem;">

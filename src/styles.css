@@ -506,11 +506,6 @@ a {
   margin-bottom: 6rem;
 }
 
-.landscape-only-decoration {
-  margin-top: 2rem;
-  opacity: 0.6;
-}
-
 .bio-intro {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -803,10 +798,6 @@ a {
     gap: 2rem;
   }
   
-  .landscape-only-decoration {
-    display: none;
-  }
-
   .info-grid {
     grid-template-columns: 1fr;
     gap: 2rem;

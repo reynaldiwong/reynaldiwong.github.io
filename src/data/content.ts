@@ -1,5 +1,4 @@
 import { profileImage } from './profile-image';
-import { hobbiesImage } from './hobbies-image';
 
 export const content = {
   meta: {
@@ -17,7 +16,7 @@ export const content = {
   },
   bio: {
     tagline:
-      '"You should enjoy the little detours to the fullest. Because that\'s where you\'ll find things more important than what you want."',
+      '"You should enjoy the little detours to the fullest. Because that\'s where you\'ll find things more important than what you want." — HxH',
     intro: [
       "Hi, My name is <strong>Reynaldi Wong</strong>. You can call me <strong>Rey</strong>. I’ve always been a lazy person. And because of that, I constantly ask myself <em>\"What if I could just automate everything?\"</em> That mindset led me to study Mechatronics Engineering.",
       "After graduating, I began working with microcontrollers and machines, using tools like Arduino, PLCs, and even Raspberry Pi. And then, Somewhere along the way, somehow i began working as a DevOps Engineer. That discovery changed my direction.",
