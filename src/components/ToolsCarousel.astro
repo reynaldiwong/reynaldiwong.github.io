@@ -1,7 +1,5 @@
 ---
 const tools = [
-  // Example of adding a tool with a PNG image:
-  // { name: "My Tool", image: "/assets/my-tool.png" },
   {
     name: "Jenkins",
     image: "/carousel/jenkins.png",
@@ -55,135 +53,53 @@ const row2 = tools.slice(itemsPerCol, itemsPerCol * 2);
 const row3 = tools.slice(itemsPerCol * 2);
 
 // Create a repeated list for each row to ensure enough scrolling content
-// We repeat 4 times for the "content" block
-const createRowContent = (rowTools) => [...rowTools, ...rowTools, ...rowTools, ...rowTools];
+// We repeat 2 times for the "content" block, then duplicate it in JSX for seamless scrolling
+const createRowContent = (rowTools) => [...rowTools, ...rowTools];
 
-const row1Content = createRowContent(row1);
-const row2Content = createRowContent(row2);
-const row3Content = createRowContent(row3);
+const rows = [
+  { content: createRowContent(row1), direction: 'scroll-left' },
+  { content: createRowContent(row2), direction: 'scroll-right' },
+  { content: createRowContent(row3), direction: 'scroll-left' }
+];
+
 const allToolsContent = createRowContent(tools);
 ---
 
 <div class="carousel-wrapper desktop-view">
-  <!-- Row 1 -->
-  <div class="carousel-container">
-    <div class="tools-track scroll-left">
-      {row1Content.map(tool => (
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
-          <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
+  {rows.map((row) => (
+    <div class="carousel-container">
+      <div class={`tools-track ${row.direction}`}>
+        {/* Original */}
+        {row.content.map(tool => (
+          <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
+            <div class="tool-icon" title={tool.name}>
               <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
-            <span class="tool-name">{tool.name}</span>
-          </div>
-        </a>
-      ))}
-      {/* Duplicate for seamless scroll */}
-      {row1Content.map(tool => (
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
-          <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
+              <span class="tool-name">{tool.name}</span>
+            </div>
+          </a>
+        ))}
+        {/* Duplicate for seamless scroll */}
+        {row.content.map(tool => (
+          <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
+            <div class="tool-icon" title={tool.name}>
               <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
-            <span class="tool-name">{tool.name}</span>
-          </div>
-        </a>
-      ))}
+              <span class="tool-name">{tool.name}</span>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
-  </div>
-
-  <!-- Row 2 -->
-  <div class="carousel-container">
-    <div class="tools-track scroll-right">
-      {row2Content.map(tool => (
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
-          <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
-              <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
-            <span class="tool-name">{tool.name}</span>
-          </div>
-        </a>
-      ))}
-      {/* Duplicate for seamless scroll */}
-      {row2Content.map(tool => (
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
-          <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
-              <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
-            <span class="tool-name">{tool.name}</span>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
-
-  <!-- Row 3 -->
-  <div class="carousel-container">
-    <div class="tools-track scroll-left">
-      {row3Content.map(tool => (
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
-          <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
-              <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
-            <span class="tool-name">{tool.name}</span>
-          </div>
-        </a>
-      ))}
-      {/* Duplicate for seamless scroll */}
-      {row3Content.map(tool => (
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
-          <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
-              <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
-            <span class="tool-name">{tool.name}</span>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
+  ))}
 </div>
 
 <div class="carousel-wrapper mobile-view">
   <div class="carousel-container">
     <div class="tools-track scroll-left">
+      {/* Original */}
       {allToolsContent.map(tool => (
         <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
           <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
-              <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
+            <img src={tool.image} alt={tool.name} class="tool-img" />
             <span class="tool-name">{tool.name}</span>
           </div>
         </a>
@@ -192,13 +108,7 @@ const allToolsContent = createRowContent(tools);
       {allToolsContent.map(tool => (
         <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
           <div class="tool-icon" title={tool.name}>
-            {tool.image ? (
-              <img src={tool.image} alt={tool.name} class="tool-img" />
-            ) : (
-              <svg viewBox="0 0 24 24" class="tool-svg" xmlns="http://www.w3.org/2000/svg">
-                <path d={tool.path}></path>
-              </svg>
-            )}
+            <img src={tool.image} alt={tool.name} class="tool-img" />
             <span class="tool-name">{tool.name}</span>
           </div>
         </a>
@@ -208,24 +118,30 @@ const allToolsContent = createRowContent(tools);
 </div>
 
 <style>
+  .desktop-view {
+    display: flex;
+  }
+  
   .mobile-view {
-    display: none !important;
+    display: none;
   }
   
   @media (max-width: 768px) {
     .desktop-view {
-      display: none !important;
+      display: none;
     }
     .mobile-view {
-      display: flex !important;
+      display: flex;
     }
     .scroll-left, .scroll-right {
-      animation-duration: 120s;
+      animation-duration: 60s;
+    }
+    .carousel-wrapper {
+      max-width: 100%;
     }
   }
 
   .carousel-wrapper {
-    display: flex;
     flex-direction: column;
     gap: 2rem;
     width: 100%;
@@ -237,8 +153,8 @@ const allToolsContent = createRowContent(tools);
     width: 100%;
     overflow: hidden;
     position: relative;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 95%, transparent);
   }
 
   .tools-track {
