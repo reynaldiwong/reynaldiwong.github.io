@@ -112,13 +112,47 @@ const { meta, hero, bio, experience, hobbies } = content;
       </div>
     </div>
 
-    <a href="/tools" class="tools-link-card animate-left delay-600">
-      <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-        <span class="tools-link-title">Tools</span>
-        <span class="tools-link-desc">DNS Lookup, SSL Checker, JSON Formatter</span>
-      </div>
-      <span class="tools-link-arrow">→</span>
-    </a>
+    <div class="links-grid animate-left delay-600">
+      <a href="/tools" class="tools-link-card">
+        <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+          <span class="tools-link-title">Tools</span>
+          <span class="tools-link-desc">DNS, SSL, JSON</span>
+        </div>
+        <span class="tools-link-arrow">→</span>
+      </a>
+
+      <a href="/blog" class="tools-link-card">
+        <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+          <span class="tools-link-title">Blog</span>
+          <span class="tools-link-desc">Thoughts & Updates</span>
+        </div>
+        <span class="tools-link-arrow">→</span>
+      </a>
+
+      <a href="/roadmap" class="tools-link-card" style="grid-column: 1 / -1;">
+        <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+          <span class="tools-link-title">DevOps Roadmap</span>
+          <span class="tools-link-desc">My Learning Journey</span>
+        </div>
+        <span class="tools-link-arrow">→</span>
+      </a>
+    </div>
 
   </div>
 </BaseLayout>
+
+<style>
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .links-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

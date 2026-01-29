@@ -75,4 +75,10 @@ export const content = {
     description: "Just a bunch of tools to help you and me.",
     tagline: "Just a bunch of tools to help you and me.",
   },
+  navigation: [
+    { name: 'Home', href: '/' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Roadmap', href: '/roadmap' },
+    { name: 'Tools', href: '/tools' },
+  ],
 };

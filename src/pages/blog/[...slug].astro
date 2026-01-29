@@ -1,0 +1,219 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+	<article class="blog-post animate-load">
+        <div class="post-nav">
+            <a href="/blog" class="back-link">← Back to Blog</a>
+        </div>
+		<div class="hero-image">
+			{post.data.heroImage && <Image width={1020} height={510} src={post.data.heroImage} alt="" />}
+		</div>
+		<div class="prose">
+			<div class="title">
+				<div class="date">
+                    <span class="author">{post.data.author}</span>
+                    <span class="separator"> • </span>
+					{post.data.pubDate.toLocaleDateString('en-us', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                    })}
+				</div>
+				<h1>{post.data.title}</h1>
+				<hr />
+			</div>
+			<Content />
+		</div>
+	</article>
+
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+</BaseLayout>
+
+<script type="module">
+  // Scroll to top functionality
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+  
+  if (scrollToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+
+  function renderMermaid() {
+    // Select all pre tags
+    const preElements = document.querySelectorAll('pre');
+    
+    preElements.forEach(pre => {
+      // Check if it's a mermaid block
+      // Astro shiki might put data-language="mermaid" or class="language-mermaid"
+      const isMermaid = 
+        pre.classList.contains('mermaid') || 
+        pre.classList.contains('language-mermaid') ||
+        pre.getAttribute('data-language') === 'mermaid' ||
+        (pre.querySelector('code') && (
+            pre.querySelector('code').classList.contains('mermaid') || 
+            pre.querySelector('code').classList.contains('language-mermaid')
+        ));
+
+      if (isMermaid) {
+        // We found it!
+        // We need the raw text. element.textContent should give us the text without html tags.
+        const content = pre.textContent.trim();
+        
+        const div = document.createElement('div');
+        div.classList.add('mermaid');
+        div.textContent = content;
+        
+        pre.replaceWith(div);
+      }
+    });
+
+    mermaid.run({
+      querySelector: '.mermaid'
+    });
+  }
+
+  // Run on load
+  renderMermaid();
+</script>
+
+<style>
+    .blog-post {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+    .post-nav {
+        margin-bottom: 2rem;
+    }
+    .back-link {
+        color: var(--secondary-text, #888);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+    }
+    .back-link:hover {
+        color: #fff;
+    }
+    .hero-image {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .hero-image img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 21 / 9;
+    }
+    .prose {
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        color: var(--text-color, #e0e0e0);
+    }
+    .title {
+        margin-bottom: 2em;
+        text-align: center;
+    }
+    .title h1 {
+        margin: 0.5em 0;
+        font-size: 2.5rem;
+    }
+    .date {
+        margin-bottom: 0.5em;
+        color: var(--secondary-text, #888);
+        font-family: monospace;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin: 2rem 0;
+    }
+    
+    /* Scroll to Top Button */
+    .scroll-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: 1px solid #16181D;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 100;
+        backdrop-filter: blur(4px);
+    }
+
+    .scroll-to-top:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(0) scale(1.1);
+    }
+
+    .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+        .title h1 {
+            font-size: 1.8rem;
+        }
+        .hero-image {
+            margin-bottom: 1rem;
+        }
+        .scroll-to-top {
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+</style>

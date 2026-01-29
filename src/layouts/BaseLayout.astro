@@ -1,6 +1,7 @@
 ---
 import "../styles.css";
 import YearStamp from "../components/YearStamp.astro";
+import Navigation from "../components/Navigation.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -16,9 +17,16 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <header class="hero">
-      <div class="hero-inner">
+      <div class="hero-inner" style="display: block;">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="/" style="text-decoration: none;">
+              <p class="eyebrow">Reynaldiwong</p>
+            </a>
+            <div class="nav-wrapper">
+              <Navigation />
+            </div>
+          </div>
         <div class="hero-content">
-          <p class="eyebrow">Reynaldiwong</p>
           <slot name="hero" />
         </div>
       </div>
@@ -46,8 +54,20 @@ const { title, description } = Astro.props;
         });
       }, observerOptions);
 
-      const animatedElements = document.querySelectorAll('.animate-left, .animate-right, .animate-load');
-      animatedElements.forEach(el => observer.observe(el));
+      document.querySelectorAll('.animate-load, .animate-left, .animate-right').forEach(el => {
+        observer.observe(el);
+      });
     </script>
+    <style>
+      .nav-wrapper {
+        margin-right: 2.5rem;
+      }
+      
+      @media (max-width: 768px) {
+        .nav-wrapper {
+          margin-right: 0;
+        }
+      }
+    </style>
   </body>
 </html>

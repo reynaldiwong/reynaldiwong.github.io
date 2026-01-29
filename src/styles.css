@@ -805,6 +805,10 @@ a {
 }
 
 @media (max-width: 600px) {
+  .page {
+    padding: 0 1rem 1rem 1rem;
+  }
+
   .hero-split, .bio-split, .experience-section, .info-grid {
     border-bottom: 1px solid #333;
     padding-bottom: 2rem;
@@ -858,4 +862,122 @@ a {
   .hero-json-code {
     font-size: 0.85rem;
   }
+}
+
+/* =========================================
+   Markdown / Prose Styling (Global)
+   ========================================= */
+
+/* Basic Markdown Styling */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #fff;
+}
+
+.prose p {
+  margin-bottom: 1.5em;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.prose a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  background-image: linear-gradient(120deg, var(--primary-color) 0%, var(--primary-color) 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: 0% 0%;
+  transition: background-size 0.3s ease-in-out, color 0.3s ease-in-out;
+  padding: 0 2px;
+}
+
+.prose a:hover {
+  text-decoration: none;
+  background-size: 100% 100%;
+  color: var(--bg-color);
+}
+
+.prose pre {
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.prose code {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+  color: #ccc;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose blockquote {
+  border-left: 4px solid #444;
+  margin: 0;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #888;
+}
+
+.prose img {
+  width: auto;
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Table Styling */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  color: #e0e0e0;
+}
+
+.prose th, .prose td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  color: #fff;
+}
+
+.prose tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  overflow-x: auto;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.mermaid .edgeLabel {
+  background-color: #16181D !important;
+  color: #e0e0e0 !important;
+}
+
+@media (max-width: 600px) {
+  .prose h1 { font-size: 1.8rem; }
+  .prose h2 { font-size: 1.5rem; }
+  .prose h3 { font-size: 1.3rem; }
 }

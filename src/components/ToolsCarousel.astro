@@ -1,51 +1,6 @@
 ---
-const tools = [
-  {
-    name: "Jenkins",
-    image: "/carousel/jenkins.png",
-    url: "https://www.jenkins.io/"
-  },
-  {
-    name: "Kubernetes",
-    image: "/carousel/kubernetes.png",
-    url: "https://kubernetes.io/"
-  },
-  {
-    name: "Docker",
-    image: "/carousel/docker.png",
-    url: "https://www.docker.com/"
-  },
-  {
-    name: "n8n",
-    image: "/carousel/n8n.png",
-    url: "https://n8n.io/"
-  },
-  {
-    name: "GCP",
-    image: "/carousel/gcp.png",
-    url: "https://cloud.google.com/"
-  },
-  {
-    name: "Ansible",
-    image: "/carousel/ansible.png",
-    url: "https://www.ansible.com/"
-  },
-  {
-    name: "ArgoCD",
-    image: "/carousel/argocd.png",
-    url: "https://argo-cd.readthedocs.io/"
-  },
-  {
-    name: "SonarQube",
-    image: "/carousel/sonarqube.png",
-    url: "https://www.sonarqube.org/"
-  },
-  {
-    name: "Python",
-    image: "/carousel/python.png",
-    url: "https://www.python.org/"
-  },
-];
+import { carouselTools as tools } from '../data/carousel';
+import { Image } from 'astro:assets';
 
 const itemsPerCol = Math.ceil(tools.length / 3);
 const row1 = tools.slice(0, itemsPerCol);
@@ -73,7 +28,7 @@ const allToolsContent = createRowContent(tools);
         {row.content.map(tool => (
           <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
             <div class="tool-icon" title={tool.name}>
-              <img src={tool.image} alt={tool.name} class="tool-img" />
+              <Image src={tool.image} alt={tool.name} class="tool-img" width={88} height={88} />
               <span class="tool-name">{tool.name}</span>
             </div>
           </a>
@@ -82,7 +37,7 @@ const allToolsContent = createRowContent(tools);
         {row.content.map(tool => (
           <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
             <div class="tool-icon" title={tool.name}>
-              <img src={tool.image} alt={tool.name} class="tool-img" />
+              <Image src={tool.image} alt={tool.name} class="tool-img" width={88} height={88} />
               <span class="tool-name">{tool.name}</span>
             </div>
           </a>
@@ -99,7 +54,7 @@ const allToolsContent = createRowContent(tools);
       {allToolsContent.map(tool => (
         <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
           <div class="tool-icon" title={tool.name}>
-            <img src={tool.image} alt={tool.name} class="tool-img" />
+            <Image src={tool.image} alt={tool.name} class="tool-img" width={88} height={88} />
             <span class="tool-name">{tool.name}</span>
           </div>
         </a>
@@ -108,7 +63,7 @@ const allToolsContent = createRowContent(tools);
       {allToolsContent.map(tool => (
         <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link">
           <div class="tool-icon" title={tool.name}>
-            <img src={tool.image} alt={tool.name} class="tool-img" />
+            <Image src={tool.image} alt={tool.name} class="tool-img" width={88} height={88} />
             <span class="tool-name">{tool.name}</span>
           </div>
         </a>
