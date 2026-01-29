@@ -1,4 +1,4 @@
-import { profileImage } from './profile-image';
+import profileImage from '../assets/me.jpg';
 
 export const content = {
   meta: {
@@ -7,7 +7,7 @@ export const content = {
   },
   hero: {
     startDate: "2022-08-01",
-    image: profileImage,
+    image: profileImage.src,
     json: {
       name: "Reynaldi Wong",
       role: "DevOps Engineer", // Corresponds to "class" in the JSON display

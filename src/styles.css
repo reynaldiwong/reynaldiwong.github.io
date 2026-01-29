@@ -315,6 +315,7 @@ a {
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .tool-section-header-main {
