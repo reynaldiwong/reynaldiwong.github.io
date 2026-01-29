@@ -75,6 +75,32 @@ export const content = {
     description: "Just a bunch of tools to help you and me.",
     tagline: "Just a bunch of tools to help you and me.",
   },
+  blog: {
+    title: "Blog",
+    description: "My personal blog",
+    backLinkText: "← Back to Blog",
+    backToHomeText: "← Back to Home",
+    categories: {
+      alien: {
+        key: "alien",
+        title: "👽 I Don't Speak Alien"
+      },
+      regular: {
+        title: "Latest Posts"
+      }
+    }
+  },
+  sectionHeaders: {
+    workExperience: "Work Experience",
+    outOfTerminal: "> Out of the Terminal",
+    skills: "Stuff I Have Worked With",
+    skillsSubtitle: "(But still learning to master them)"
+  },
+  homeLinks: [
+    { title: "Tools", desc: "DNS, SSL, JSON", href: "/tools" },
+    { title: "Blog", desc: "Thoughts & Updates", href: "/blog" },
+    { title: "DevOps Roadmap", desc: "My Learning Journey", href: "/roadmap", fullWidth: true },
+  ],
   navigation: [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blog' },

@@ -2,25 +2,28 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
+import { content } from '../../data/content';
+
+const { blog } = content;
 
 const allPosts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const alienPosts = allPosts.filter(post => post.data.category === "alien");
-const regularPosts = allPosts.filter(post => post.data.category !== "alien");
+const alienPosts = allPosts.filter(post => post.data.category === blog.categories.alien.key);
+const regularPosts = allPosts.filter(post => post.data.category !== blog.categories.alien.key);
 ---
 
-<BaseLayout title="Blog" description="My personal blog">
+<BaseLayout title={blog.title} description={blog.description}>
 	<section class="blog-container">
         <div class="header-container animate-left">
-            <h1 class="section-heading">Blog</h1>
-            <a href="/" class="back-link">← Back to Home</a>
+            <h1 class="section-heading">{blog.title}</h1>
+            <a href="/" class="back-link">{blog.backToHomeText}</a>
         </div>
 
         {alienPosts.length > 0 && (
             <div class="category-section animate-left delay-100">
-                <h2 class="category-heading">👽 I Don't Speak Alien</h2>
+                <h2 class="category-heading">{blog.categories.alien.title}</h2>
                 <ul class="post-list">
                     {alienPosts.map((post) => (
                         <li class="animate-left">
@@ -52,7 +55,7 @@ const regularPosts = allPosts.filter(post => post.data.category !== "alien");
 
         {regularPosts.length > 0 && (
             <div class="category-section animate-left delay-200">
-                <h2 class="category-heading">Latest Posts</h2>
+                <h2 class="category-heading">{blog.categories.regular.title}</h2>
                 <ul class="post-list">
                     {regularPosts.map((post) => (
                         <li class="animate-left">

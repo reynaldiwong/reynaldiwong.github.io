@@ -2,6 +2,7 @@
 import "../styles.css";
 import YearStamp from "../components/YearStamp.astro";
 import Navigation from "../components/Navigation.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -37,6 +38,8 @@ const { title, description } = Astro.props;
         <span>&copy; <YearStamp /> | reynaldiwong</span>
       </footer>
     </main>
+
+    <ScrollToTop />
 
     <script>
       const observerOptions = {

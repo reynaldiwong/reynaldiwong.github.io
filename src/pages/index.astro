@@ -6,7 +6,7 @@ import ToolsCarousel from "../components/ToolsCarousel.astro";
 import BallWave from "../components/BallWave";
 import { content } from "../data/content";
 
-const { meta, hero, bio, experience, hobbies } = content;
+const { meta, hero, bio, experience, hobbies, sectionHeaders, homeLinks } = content;
 ---
 
 <BaseLayout
@@ -33,7 +33,7 @@ const { meta, hero, bio, experience, hobbies } = content;
     <section class="bio-split">
       <div class="bio-left animate-left delay-300">
         <p class="tagline" style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem; color: var(--secondary-text);">
-          Tools I Have Worked With<br><span style="font-size: 0.9em">(But still learning to master them) <span style="display: inline-block; animation: spin 2s linear infinite;">😔</span></span>
+          {sectionHeaders.skills}<br><span style="font-size: 0.9em">{sectionHeaders.skillsSubtitle} <span style="display: inline-block; animation: spin 2s linear infinite;">😔</span></span>
         </p>
         <ToolsCarousel />
       </div>
@@ -61,7 +61,7 @@ const { meta, hero, bio, experience, hobbies } = content;
 
     <h2 class="section-heading animate-left delay-400" style="max-width: 800px;">
       <BallWave client:visible />
-      Work Experience
+      {sectionHeaders.workExperience}
     </h2>
 
     <section class="experience-section animate-left delay-400">
@@ -84,7 +84,7 @@ const { meta, hero, bio, experience, hobbies } = content;
     </section>
 
     <h2 class="section-heading animate-left delay-500" style="margin-bottom: 2rem;">
-      <span style="color: #00ff00; animation: blink 1s step-end infinite;">&gt;</span> Out of the Terminal
+      <span style="color: #00ff00; animation: blink 1s step-end infinite;">&gt;</span> {sectionHeaders.outOfTerminal}
     </h2>
     <div style="margin-bottom: 2rem; color: var(--secondary-text); font-style: italic; font-size: 1.2rem;">
       {bio.tagline}
@@ -113,29 +113,15 @@ const { meta, hero, bio, experience, hobbies } = content;
     </div>
 
     <div class="links-grid animate-left delay-600">
-      <a href="/tools" class="tools-link-card">
-        <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-          <span class="tools-link-title">Tools</span>
-          <span class="tools-link-desc">DNS, SSL, JSON</span>
-        </div>
-        <span class="tools-link-arrow">→</span>
-      </a>
-
-      <a href="/blog" class="tools-link-card">
-        <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-          <span class="tools-link-title">Blog</span>
-          <span class="tools-link-desc">Thoughts & Updates</span>
-        </div>
-        <span class="tools-link-arrow">→</span>
-      </a>
-
-      <a href="/roadmap" class="tools-link-card" style="grid-column: 1 / -1;">
-        <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-          <span class="tools-link-title">DevOps Roadmap</span>
-          <span class="tools-link-desc">My Learning Journey</span>
-        </div>
-        <span class="tools-link-arrow">→</span>
-      </a>
+      {homeLinks.map((link) => (
+        <a href={link.href} class="tools-link-card" style={link.fullWidth ? "grid-column: 1 / -1;" : ""}>
+          <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+            <span class="tools-link-title">{link.title}</span>
+            <span class="tools-link-desc">{link.desc}</span>
+          </div>
+          <span class="tools-link-arrow">→</span>
+        </a>
+      ))}
     </div>
 
   </div>
