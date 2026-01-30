@@ -10,7 +10,7 @@ Kubernetes is an open-source platform designed to manage, deploy, and scale cont
 
 [Check out the official Kubernetes documentation](https://kubernetes.io/docs/home/)
 
-# I still don't understand, Mr. Alien. Can you explain it in simpler terms? <span style="display: inline-block; animation: spin 2s linear infinite;">😔</span> 
+# Can you explain it in simpler terms, Mr. Alien? <span style="display: inline-block; animation: spin 2s linear infinite;">😔</span> 
 Imagine you are running a restaurant. You have a team of chefs who are responsible for cooking the food. You also have a team of server who are responsible for taking orders and serving the customers. And you know the flow of a restaurant is as follows: &nbsp;<em>A customer comes in and orders a dish → The server takes the order and passes it to the chef → The chef prepares the dish and passes it back to the server → The server then serves the customer.</em> <strong>You might already know what this refering to.</strong> 😉
 
 ```mermaid
