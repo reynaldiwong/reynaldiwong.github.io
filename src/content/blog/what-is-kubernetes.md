@@ -1,5 +1,5 @@
 ---
-title: 'What is Kubernetes?'
+title: 'Mr. Alien, What is Kubernetes?'
 description: 'I Don’t Speak Alien. What the heck is Kubernetes?'
 pubDate: 'Jan 29 2026'
 heroImage: '../../assets/blog/kubernetes.jpg'
@@ -30,12 +30,12 @@ graph LR
 ```
 Now, let's talk about what might happen in the restaurant:
 1. <strong>What happen if turns out the workload is too much?</strong><br>
-    <em>You need to hire more chefs and server to handle the workload. Or maybe you can increase the resources to while keeping the existing number of chef and server to handle the workload like upgrading the kitchen equipment or adding a digital ordering system.</em>
-2. <strong>How do you ensure the new hire is trained and ready to work?</strong><br>
-    <em>You need to provide a clear Standard Operating Procedures (SOP) and guidance for the new hire to follow.</em>
+    <em>You need to hire more chefs and server to handle the workload. Or maybe you can increase the resources while keeping the existing number of chef and server to handle the workload like upgrading the kitchen equipment or adding a digital ordering system.</em>
+2. <strong>If you indeed hire a new staff, how do you ensure the new staff is trained and ready to work?</strong><br>
+    <em>You need to provide a clear Standard Operating Procedures (SOP) and guidance for the new staff to follow.</em>
 3. <strong>What happen if the chef or the server is sick?</strong><br>
-    <em>You need to find a replacement as soon as possible.</em>
-4. <strong>How do you manage the storage in the restaurant?</strong><br>
+    <em>You need to find a replacement as soon as possible. So the restaurant can continue to serve the customers.</em>
+4. <strong>How do you manage the storage for the ingredients in the restaurant?</strong><br>
     <em>You need a clear storage system to store the ingredients. like which ingredients can be stored in the fridge, which ingredients can be stored in the pantry, and which ingredients can be stored in the warehouse. And also how the ingredients flow need to be as efficient as possible.</em>
 
 Wouldn't it be great if you have a manager who can help you solve the problem we've talked above? The manager can help you coordinate the chefs and server, ensure the new hire and even the existing crew now what they need to do, and help manage the storage in the restaurant. 
