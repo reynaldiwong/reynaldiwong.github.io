@@ -2,7 +2,7 @@
 title: 'Mr. Alien, What is Kubernetes?'
 description: 'I Don’t Speak Alien. What the heck is Kubernetes?'
 pubDate: 'Jan 29 2026'
-heroImage: '../../assets/blog/kubernetes.jpg'
+heroImage: '../../assets/blog/alien-kubernetes.jpg'
 category: "alien"
 ---
 # What is Kubernetes?
